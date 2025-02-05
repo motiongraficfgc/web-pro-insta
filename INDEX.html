@@ -1,0 +1,375 @@
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio 3D - ELDEL3DE</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        /* Encabezado */
+        header {
+            background-image: url("C:/Users/Motio/Desktop/MI WEB/Images/imge heder.png"); /* Fondo relacionado con Blender */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: 20%;
+        }
+
+        header h1 {
+            margin-bottom: 0.5rem;
+            font-size: 3rem;
+            text-shadow: 4px 3px 4px rgb(255, 174, 0);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        nav a:hover {
+            background-color: #f15900;
+            border-radius: 5px;
+        }
+
+        /* Secciones */
+        section {
+            padding: 4rem 2rem;
+            min-height: 80vh;
+        }
+
+        #inicio {
+            background-color: #f66c03;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #inicio h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #inicio p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        /* Galería de trabajos */
+        #trabajos {
+            background-color: white;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .galeria img,
+        .galeria video {
+            width: 300px; /* Mismo tamaño que los videos */
+            height: 500px; /* Mismo tamaño que los videos */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            object-fit: cover; /* Ajustar la imagen al contenedor */
+        }
+
+        .galeria img:hover,
+        .galeria video:hover {
+            transform: scale(1.05);
+        }
+
+        .descripcion {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Sobre mí */
+        #sobre-mi {
+            background-color: #ecf0f1;
+            text-align: center;
+        }
+
+        #sobre-mi h2 {
+            margin-bottom: 1rem;
+        }
+
+        #sobre-mi p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Explicación de renders */
+        #explicacion-renders {
+            background-color: #fff;
+            padding: 4rem 2rem;
+        }
+
+        #explicacion-renders h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .campo {
+            margin-bottom: 2rem;
+        }
+
+        .campo h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .campo p {
+            line-height: 1.8;
+        }
+
+        /* Explicación de CGI y FOOH */
+        #cgi-fooh {
+            background-color: #2c3e50;
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        #cgi-fooh h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        #cgi-fooh p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Contacto */
+        #contacto {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+        }
+
+        #formularioContacto {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        #formularioContacto label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        #formularioContacto input,
+        #formularioContacto textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #formularioContacto button {
+            background-color: #2c3e50;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #formularioContacto button:hover {
+            background-color: #1a252f;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria img,
+            .galeria video {
+                width: 100%; /* Ajustar al ancho completo en móviles */
+                height: auto; /* Altura automática */
+            }
+        }
+    </style>
+<style>@keyframes loading {
+    0% {
+        transform: rotate(0)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.ag-textarea .MuiInputBase-input::-webkit-scrollbar {
+    height: 6px;
+    width: 6px
+}
+
+.ag-textarea .MuiInputBase-input::-webkit-scrollbar-track {
+    background: transparent
+}
+
+.ag-textarea .MuiInputBase-input::-webkit-scrollbar-thumb {
+    background: #dfdfdf;
+    border-radius: 4px
+}
+
+.ag-textarea .MuiInputBase-input::-webkit-scrollbar-thumb:hover {
+    background: #d4d4d4
+}</style></head>
+<body>
+    <header>
+        <h1>ELDEL3DE</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#trabajos">Trabajos</a></li>
+                <li><a href="#explicacion-renders">Renders</a></li>
+                <li><a href="#cgi-fooh">CGI y FOOH</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio">
+        <h2>Bienvenido a mi Portafolio 3D</h2>
+        <p>Explora mis trabajos en modelado, renderizado y animación 3D. Descubre cómo el renderizado puede transformar productos, arquitectura y más.</p>
+    </section>
+
+    <section id="trabajos">
+        <h2>Mis Trabajos</h2>
+        <div class="galeria">
+            <!-- Renders -->
+            <div>
+                <img src="https://uploads-ssl.webflow.com/5894a32730554b620f7bf36d/5e848c206948e110eb2313e0_5c5423211c89029edcf04512_How-to-Achieve-Photo-Realistic-3D-Renders-in-2019-and-Beyond-EASY-RENDER.jpeg" alt="Render de Producto">
+                <p class="descripcion">Render de un producto innovador con detalles realistas.</p>
+            </div>
+            <div>
+                <img src="https://blog.architizer.com/wp-content/uploads/modern-house-4.jpg" alt="Render Arquitectónico">
+                <p class="descripcion">Visualización arquitectónica de un edificio moderno.</p>
+            </div>
+            <!-- Videos verticales -->
+            <div>
+                <video class="video-vertical" controls="">
+                    <source src="C:\Users\majul\OneDrive\Escritorio\Nueva carpeta\videos\TERMINADOelias.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+                <p class="descripcion">Animación 3D de un entorno virtual.</p>
+            </div>
+            <div>
+                <video class="video-vertical" controls="">
+                    <source src="ruta/a/tu/video2.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+                <p class="descripcion">Visualización de un producto en formato vertical.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="explicacion-renders">
+        <h2>¿Qué se puede lograr con el Renderizado?</h2>
+        <div class="campo">
+            <h3>Productos</h3>
+            <p>
+                El renderizado permite visualizar productos antes de su fabricación, mostrando detalles, materiales y funcionalidades de manera realista. Ideal para prototipos y marketing.
+            </p>
+        </div>
+        <div class="campo">
+            <h3>Arquitectura</h3>
+            <p>
+                En arquitectura, los renders ayudan a presentar proyectos de manera impactante, mostrando diseños, iluminación y texturas de forma fotorrealista.
+            </p>
+        </div>
+        <div class="campo">
+            <h3>Publicidad</h3>
+            <p>
+                Los renders se utilizan en campañas publicitarias para crear imágenes y videos llamativos que capten la atención del público.
+            </p>
+        </div>
+    </section>
+
+    <section id="cgi-fooh">
+        <h2>CGI y FOOH</h2>
+        <p>
+            <strong>CGI (Computer-Generated Imagery)</strong>: Es la creación de imágenes y animaciones mediante software 3D. Se utiliza en películas, videojuegos y publicidad para crear escenas y objetos que no existen en la realidad.
+        </p>
+        <p>
+            <strong>FOOH (Fake Out Of Home)</strong>: Es una técnica publicitaria que utiliza CGI para crear anuncios hiperrealistas en espacios públicos, como pantallas gigantes o vallas publicitarias, que parecen reales pero son completamente digitales.
+        </p>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form id="formularioContacto">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required="">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required="">
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required=""></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2023 ELDEL3DE. Todos los derechos reservados.</p>
+    </footer>
+
+<script src="chrome-extension://lopnbnfpjmgpbppclhclehhgafnifija/aiscripts/script-main.js"></script></body></html>
